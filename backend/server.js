@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
+import cookieParser from 'cookie-parser';
 import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import connectDB from './config/db.js';
@@ -11,6 +12,9 @@ connectDB();
 const port = process.env.PORT || 5000;
 
 const app = express();
+
+//Cookie parser middleware
+app.use(cookieParser());
 
 //Body parser middleware
 app.use(express.json());
